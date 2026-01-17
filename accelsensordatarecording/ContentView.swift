@@ -4,18 +4,21 @@ struct ContentView: View {
     @EnvironmentObject private var manager: RecordingManager
 
     var body: some View {
-        ZStack {
-            Color.black.ignoresSafeArea()
+        NavigationStack {
+            ZStack {
+                Color.black.ignoresSafeArea()
 
-            VStack(spacing: 0) {
-                header
+                VStack(spacing: 0) {
+                    header
 
-                recordingsList
+                    recordingsList
 
-                Spacer(minLength: 24)
+                    Spacer(minLength: 24)
 
-                recorderControls
+                    recorderControls
+                }
             }
+            .navigationBarHidden(true)
         }
         .onAppear {
             manager.loadRecordings()
@@ -38,8 +41,12 @@ struct ContentView: View {
         ScrollView {
             LazyVStack(spacing: 0) {
                 ForEach(manager.recordings) { recording in
-                    RecordingRow(recording: recording)
-                        .padding(.horizontal, 20)
+                    NavigationLink(destination: RecordingDetailView(recording: recording)) {
+                        RecordingRow(recording: recording)
+                            .padding(.horizontal, 20)
+                    }
+                    .buttonStyle(.plain)
+
                     Divider()
                         .background(Color.white.opacity(0.08))
                         .padding(.leading, 20)
