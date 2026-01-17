@@ -1,4 +1,4 @@
-# potholerecorder
+# accelsensordatarecording
 
 A SwiftUI iPhone app that records synced 3D motion data (via `CMDeviceMotion`) and GPS coordinates with a single record/stop button. The UI is intentionally modeled after the iPhone Voice Memos app for a simple, familiar workflow.
 
@@ -10,7 +10,7 @@ A SwiftUI iPhone app that records synced 3D motion data (via `CMDeviceMotion`) a
 
 ## Project setup (Xcode on macOS)
 1. Clone this repository.
-2. Open `potholerecorder.xcodeproj` in Xcode.
+2. Open `accelsensordatarecording.xcodeproj` in Xcode.
 3. Select a simulator or a connected iPhone.
 4. Build and run.
 
