@@ -7,7 +7,7 @@
     <key>CFBundleIdentifier</key>
     <string>com.example.potholememos</string>
     <key>CFBundleName</key>
-    <string>PotholeRecorder</string>
+    <string>potholerecorder</string>
     <key>CFBundleVersion</key>
     <string>1</string>
     <key>CFBundleShortVersionString</key>
