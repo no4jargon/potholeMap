@@ -8,11 +8,11 @@ A SwiftUI iPhone app that records synced 3D motion data (via `CMDeviceMotion`) a
 - Uses `CMDeviceMotion` (user acceleration + rotation + gravity) for pothole detection research.
 - Location updates tuned for automotive navigation.
 
-## Project setup
-1. Open Xcode.
-2. Create a new **iOS App** project named **PotholeRecorder** using SwiftUI.
-3. Replace the generated files with the contents in the `PotholeRecorder/` folder in this repository.
-4. Ensure your target uses `Info.plist` from `PotholeRecorder/Info.plist` (or merge the permissions into your app Info.plist).
+## Project setup (Xcode on macOS)
+1. Clone this repository.
+2. Open `PotholeRecorder.xcodeproj` in Xcode.
+3. Select a simulator or a connected iPhone.
+4. Build and run.
 
 ## Data format
 Each recording is saved as a CSV file in the app’s Documents directory with the following columns:
@@ -26,4 +26,4 @@ timestamp,latitude,longitude,altitude,speed,accel_x,accel_y,accel_z,gyro_x,gyro_
 ## Notes
 - Location permission: **When In Use**.
 - Motion permission: **Required** for `CMDeviceMotion`.
-- This repository provides the SwiftUI source structure; you’ll still need to create the Xcode project container.
+- The Xcode project is included, so the repo opens directly in Xcode on macOS.
