@@ -15,6 +15,8 @@
 		A1B2C3D4E5F6000000000006 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000016 /* RecordButton.swift */; };
 		A1B2C3D4E5F6000000000007 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000017 /* Assets.xcassets */; };
 		A1B2C3D4E5F6000000000008 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000018 /* Preview Assets.xcassets */; };
+		A1B2C3D4E5F6000000000009 /* RecordingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000021 /* RecordingSample.swift */; };
+		A1B2C3D4E5F600000000000A /* RecordingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000022 /* RecordingDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		A1B2C3D4E5F6000000000017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A1B2C3D4E5F6000000000018 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A1B2C3D4E5F6000000000019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1B2C3D4E5F6000000000021 /* RecordingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSample.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6000000000022 /* RecordingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -67,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B2C3D4E5F6000000000015 /* Recording.swift */,
+				A1B2C3D4E5F6000000000021 /* RecordingSample.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -75,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				A1B2C3D4E5F6000000000016 /* RecordButton.swift */,
+				A1B2C3D4E5F6000000000022 /* RecordingDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,6 +168,8 @@
 				A1B2C3D4E5F6000000000004 /* RecordingManager.swift in Sources */,
 				A1B2C3D4E5F6000000000005 /* Recording.swift in Sources */,
 				A1B2C3D4E5F6000000000006 /* RecordButton.swift in Sources */,
+				A1B2C3D4E5F6000000000009 /* RecordingSample.swift in Sources */,
+				A1B2C3D4E5F600000000000A /* RecordingDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
