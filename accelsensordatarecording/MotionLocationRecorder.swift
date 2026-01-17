@@ -4,6 +4,7 @@ import Foundation
 
 final class MotionLocationRecorder: NSObject, CLLocationManagerDelegate {
     private let motionManager = CMMotionManager()
+    private let activityManager = CMMotionActivityManager()
     private let locationManager = CLLocationManager()
     private let queue = OperationQueue()
 
@@ -40,6 +41,7 @@ final class MotionLocationRecorder: NSObject, CLLocationManagerDelegate {
 
     private func requestPermissions() {
         locationManager.requestWhenInUseAuthorization()
+        requestMotionAuthorization()
     }
 
     private func startLocationUpdates() {
@@ -47,12 +49,38 @@ final class MotionLocationRecorder: NSObject, CLLocationManagerDelegate {
     }
 
     private func startMotionUpdates() {
-        guard motionManager.isDeviceMotionAvailable else { return }
+        guard motionManager.isDeviceMotionAvailable else {
+            title = "Motion Unavailable"
+            return
+        }
+        if motionPermissionDenied() {
+            title = "Motion Permission Required"
+            return
+        }
         motionManager.deviceMotionUpdateInterval = 1.0 / 50.0
 
         motionManager.startDeviceMotionUpdates(using: .xArbitraryZVertical, to: queue) { [weak self] motion, error in
             guard let self, let motion, error == nil else { return }
             self.writeSample(from: motion)
+        }
+    }
+
+    private func motionPermissionDenied() -> Bool {
+        if #available(iOS 11.0, *) {
+            let status = CMMotionActivityManager.authorizationStatus()
+            return status == .denied || status == .restricted
+        }
+        return false
+    }
+
+    private func requestMotionAuthorization() {
+        guard CMMotionActivityManager.isActivityAvailable() else { return }
+        if #available(iOS 11.0, *) {
+            let status = CMMotionActivityManager.authorizationStatus()
+            guard status == .notDetermined else { return }
+        }
+        activityManager.startActivityUpdates(to: OperationQueue.main) { [weak self] _ in
+            self?.activityManager.stopActivityUpdates()
         }
     }
 
