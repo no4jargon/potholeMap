@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A1B2C3D4E5F6000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000011 /* ContentView.swift */; };
 		A1B2C3D4E5F6000000000002 /* MotionLocationRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000012 /* MotionLocationRecorder.swift */; };
-		A1B2C3D4E5F6000000000003 /* potholerecorderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000013 /* potholerecorderApp.swift */; };
+		A1B2C3D4E5F6000000000003 /* accelsensordatarecordingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000013 /* accelsensordatarecordingApp.swift */; };
 		A1B2C3D4E5F6000000000004 /* RecordingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000014 /* RecordingManager.swift */; };
 		A1B2C3D4E5F6000000000005 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000015 /* Recording.swift */; };
 		A1B2C3D4E5F6000000000006 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000016 /* RecordButton.swift */; };
@@ -18,10 +18,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A1B2C3D4E5F6000000000010 /* potholerecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = potholerecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C3D4E5F6000000000010 /* accelsensordatarecording.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = accelsensordatarecording.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1B2C3D4E5F6000000000011 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6000000000012 /* MotionLocationRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionLocationRecorder.swift; sourceTree = "<group>"; };
-		A1B2C3D4E5F6000000000013 /* potholerecorderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = potholerecorderApp.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6000000000013 /* accelsensordatarecordingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = accelsensordatarecordingApp.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6000000000014 /* RecordingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingManager.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6000000000015 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6000000000016 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
@@ -44,15 +44,15 @@
 		A1B2C3D4E5F6000000000030 = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D4E5F6000000000031 /* potholerecorder */,
+				A1B2C3D4E5F6000000000031 /* accelsensordatarecording */,
 				A1B2C3D4E5F6000000000032 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A1B2C3D4E5F6000000000031 /* potholerecorder */ = {
+		A1B2C3D4E5F6000000000031 /* accelsensordatarecording */ = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D4E5F6000000000013 /* potholerecorderApp.swift */,
+				A1B2C3D4E5F6000000000013 /* accelsensordatarecordingApp.swift */,
 				A1B2C3D4E5F6000000000011 /* ContentView.swift */,
 				A1B2C3D4E5F6000000000033 /* Models */,
 				A1B2C3D4E5F6000000000034 /* Views */,
@@ -62,13 +62,13 @@
 				A1B2C3D4E5F6000000000035 /* Preview Content */,
 				A1B2C3D4E5F6000000000019 /* Info.plist */,
 			);
-			path = potholerecorder;
+			path = accelsensordatarecording;
 			sourceTree = "<group>";
 		};
 		A1B2C3D4E5F6000000000032 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A1B2C3D4E5F6000000000010 /* potholerecorder.app */,
+				A1B2C3D4E5F6000000000010 /* accelsensordatarecording.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,9 +100,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1B2C3D4E5F6000000000040 /* potholerecorder */ = {
+		A1B2C3D4E5F6000000000040 /* accelsensordatarecording */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1B2C3D4E5F6000000000041 /* Build configuration list for PBXNativeTarget "potholerecorder" */;
+			buildConfigurationList = A1B2C3D4E5F6000000000041 /* Build configuration list for PBXNativeTarget "accelsensordatarecording" */;
 			buildPhases = (
 				A1B2C3D4E5F6000000000042 /* Sources */,
 				A1B2C3D4E5F6000000000043 /* Frameworks */,
@@ -112,9 +112,9 @@
 			);
 			dependencies = (
 			);
-			name = potholerecorder;
-			productName = potholerecorder;
-			productReference = A1B2C3D4E5F6000000000010 /* potholerecorder.app */;
+			name = accelsensordatarecording;
+			productName = accelsensordatarecording;
+			productReference = A1B2C3D4E5F6000000000010 /* accelsensordatarecording.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -132,7 +132,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A1B2C3D4E5F6000000000051 /* Build configuration list for PBXProject "potholerecorder" */;
+			buildConfigurationList = A1B2C3D4E5F6000000000051 /* Build configuration list for PBXProject "accelsensordatarecording" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -145,7 +145,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1B2C3D4E5F6000000000040 /* potholerecorder */,
+				A1B2C3D4E5F6000000000040 /* accelsensordatarecording */,
 			);
 		};
 /* End PBXProject section */
@@ -167,7 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1B2C3D4E5F6000000000003 /* potholerecorderApp.swift in Sources */,
+				A1B2C3D4E5F6000000000003 /* accelsensordatarecordingApp.swift in Sources */,
 				A1B2C3D4E5F6000000000001 /* ContentView.swift in Sources */,
 				A1B2C3D4E5F6000000000002 /* MotionLocationRecorder.swift in Sources */,
 				A1B2C3D4E5F6000000000004 /* RecordingManager.swift in Sources */,
@@ -185,17 +185,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"potholerecorder/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"accelsensordatarecording/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = potholerecorder/Info.plist;
+				INFOPLIST_FILE = accelsensordatarecording/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.potholerecorder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.accelsensordatarecording;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -208,17 +208,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"potholerecorder/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"accelsensordatarecording/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = potholerecorder/Info.plist;
+				INFOPLIST_FILE = accelsensordatarecording/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.potholerecorder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.accelsensordatarecording;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -233,14 +233,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = potholerecorder/Info.plist;
+				INFOPLIST_FILE = accelsensordatarecording/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.potholerecorder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.accelsensordatarecording;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -255,14 +255,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = NO;
-				INFOPLIST_FILE = potholerecorder/Info.plist;
+				INFOPLIST_FILE = accelsensordatarecording/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.potholerecorder;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.accelsensordatarecording;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -272,7 +272,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A1B2C3D4E5F6000000000041 /* Build configuration list for PBXNativeTarget "potholerecorder" */ = {
+		A1B2C3D4E5F6000000000041 /* Build configuration list for PBXNativeTarget "accelsensordatarecording" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1B2C3D4E5F6000000000062 /* Debug */,
@@ -281,7 +281,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		A1B2C3D4E5F6000000000051 /* Build configuration list for PBXProject "potholerecorder" */ = {
+		A1B2C3D4E5F6000000000051 /* Build configuration list for PBXProject "accelsensordatarecording" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1B2C3D4E5F6000000000060 /* Debug */,
