@@ -5,9 +5,9 @@
     <key>CFBundleDisplayName</key>
     <string>Pothole Memos</string>
     <key>CFBundleIdentifier</key>
-    <string>com.example.potholememos</string>
+    <string>com.example.accelsensordatarecording</string>
     <key>CFBundleName</key>
-    <string>potholerecorder</string>
+    <string>accelsensordatarecording</string>
     <key>CFBundleVersion</key>
     <string>1</string>
     <key>CFBundleShortVersionString</key>
