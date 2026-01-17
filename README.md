@@ -25,5 +25,12 @@ timestamp,latitude,longitude,altitude,speed,accel_x,accel_y,accel_z,gyro_x,gyro_
 
 ## Notes
 - Location permission: **When In Use**.
-- Motion permission: **Required** for `CMDeviceMotion`.
+- Motion permission: **Required** for `CMDeviceMotion` (prompted on first recording).
 - The Xcode project is included, so the repo opens directly in Xcode on macOS.
+
+## Troubleshooting
+If you see a warning like `Error reading file ... com.apple.CoreMotion.plist` when running on a device, it typically means iOS is blocking access to the managed Core Motion preferences file. This is an OS-level permissions check and is commonly logged when Motion & Fitness access is denied or restricted. To resolve:
+
+1. Confirm the app has **Motion & Fitness** access in **Settings → Privacy & Security → Motion & Fitness**.
+2. If the device is managed (MDM), check whether motion access is restricted by a configuration profile.
+3. Rebuild and reinstall the app after updating permissions.
