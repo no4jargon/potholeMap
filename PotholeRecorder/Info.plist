@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDisplayName</key>
+    <string>Pothole Memos</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.example.potholememos</string>
+    <key>CFBundleName</key>
+    <string>PotholeRecorder</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>1.0</string>
+    <key>UILaunchScreen</key>
+    <dict/>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We record your GPS location alongside motion data to map potholes.</string>
+    <key>NSMotionUsageDescription</key>
+    <string>We record device motion to detect pothole impacts.</string>
+</dict>
+</plist>
