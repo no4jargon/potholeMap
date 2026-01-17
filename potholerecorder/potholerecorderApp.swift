@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct PotholeRecorderApp: App {
+struct potholerecorderApp: App {
     @StateObject private var manager = RecordingManager()
 
     var body: some Scene {
