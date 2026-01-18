@@ -28,7 +28,7 @@ struct ContentView: View {
     private var header: some View {
         HStack {
             Spacer()
-            Text("Voice Memos")
+            Text("Road Memos")
                 .font(.largeTitle.bold())
                 .foregroundColor(.white)
             Spacer()
