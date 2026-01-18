@@ -17,6 +17,7 @@
 		A1B2C3D4E5F6000000000008 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000018 /* Preview Assets.xcassets */; };
 		A1B2C3D4E5F6000000000009 /* RecordingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000021 /* RecordingSample.swift */; };
 		A1B2C3D4E5F600000000000A /* RecordingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000022 /* RecordingDetailView.swift */; };
+		A1B2C3D4E5F600000000000B /* RecordingAnalysis.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B2C3D4E5F6000000000023 /* RecordingAnalysis.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		A1B2C3D4E5F6000000000019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1B2C3D4E5F6000000000021 /* RecordingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingSample.swift; sourceTree = "<group>"; };
 		A1B2C3D4E5F6000000000022 /* RecordingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingDetailView.swift; sourceTree = "<group>"; };
+		A1B2C3D4E5F6000000000023 /* RecordingAnalysis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingAnalysis.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -72,6 +74,7 @@
 			children = (
 				A1B2C3D4E5F6000000000015 /* Recording.swift */,
 				A1B2C3D4E5F6000000000021 /* RecordingSample.swift */,
+				A1B2C3D4E5F6000000000023 /* RecordingAnalysis.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				A1B2C3D4E5F6000000000006 /* RecordButton.swift in Sources */,
 				A1B2C3D4E5F6000000000009 /* RecordingSample.swift in Sources */,
 				A1B2C3D4E5F600000000000A /* RecordingDetailView.swift in Sources */,
+				A1B2C3D4E5F600000000000B /* RecordingAnalysis.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
