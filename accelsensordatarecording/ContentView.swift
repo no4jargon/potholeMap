@@ -41,11 +41,16 @@ struct ContentView: View {
         ScrollView {
             LazyVStack(spacing: 0) {
                 ForEach(manager.recordings) { recording in
-                    NavigationLink(destination: RecordingDetailView(recording: recording)) {
-                        RecordingRow(recording: recording)
-                            .padding(.horizontal, 20)
+                    HStack(spacing: 12) {
+                        NavigationLink(destination: RecordingDetailView(recording: recording)) {
+                            RecordingRow(recording: recording)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        .buttonStyle(.plain)
+
+                        analyzeButton(for: recording)
                     }
-                    .buttonStyle(.plain)
+                    .padding(.horizontal, 20)
 
                     Divider()
                         .background(Color.white.opacity(0.08))
@@ -53,6 +58,23 @@ struct ContentView: View {
                 }
             }
         }
+    }
+
+    private func analyzeButton(for recording: Recording) -> some View {
+        let isAnalyzed = manager.analyses[recording.id] != nil
+        return Button {
+            manager.analyzeRecording(recording)
+        } label: {
+            Text(isAnalyzed ? "Reanalyze" : "Analyze")
+                .font(.caption.bold())
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
+                .background(Color.white.opacity(0.12))
+                .clipShape(Capsule())
+        }
+        .buttonStyle(.plain)
+        .foregroundColor(.white)
+        .accessibilityLabel(isAnalyzed ? "Reanalyze recording" : "Analyze recording")
     }
 
     private var recorderControls: some View {

@@ -3,6 +3,7 @@ import Foundation
 
 final class RecordingManager: ObservableObject {
     @Published private(set) var recordings: [Recording] = []
+    @Published private(set) var analyses: [UUID: RecordingAnalysis] = [:]
     @Published private(set) var isRecording = false
     @Published private(set) var elapsedTimeString = "00:00"
 
@@ -39,6 +40,12 @@ final class RecordingManager: ObservableObject {
 
     func loadRecordings() {
         recordings = RecordingFileStore.loadRecordings()
+    }
+
+    func analyzeRecording(_ recording: Recording) {
+        let samples = RecordingDataLoader.loadSamples(from: recording.fileURL)
+        guard let analysis = RecordingAnalyzer.analyze(samples: samples) else { return }
+        analyses[recording.id] = analysis
     }
 
     private func startTimer() {
