@@ -27,19 +27,46 @@ final class RecordingManager: ObservableObject {
         let finishDate = Date()
         let duration = finishDate.timeIntervalSince(startDate ?? finishDate)
         if let fileURL = recorder.stop() {
+            let title = RecordingFileStore.defaultTitle(index: RecordingFileStore.nextIndex(from: recordings))
             let recording = Recording(
                 id: UUID(),
-                title: recorder.title,
+                title: title,
                 date: startDate ?? finishDate,
                 duration: duration,
                 fileURL: fileURL
             )
             recordings.insert(recording, at: 0)
+            RecordingFileStore.saveTitle(title, for: fileURL)
         }
     }
 
     func loadRecordings() {
         recordings = RecordingFileStore.loadRecordings()
+    }
+
+    func renameRecording(_ recording: Recording, to newTitle: String) {
+        let trimmed = newTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty,
+              let index = recordings.firstIndex(where: { $0.id == recording.id }) else {
+            return
+        }
+        recordings[index] = Recording(
+            id: recording.id,
+            title: trimmed,
+            date: recording.date,
+            duration: recording.duration,
+            fileURL: recording.fileURL
+        )
+        RecordingFileStore.saveTitle(trimmed, for: recording.fileURL)
+    }
+
+    func deleteRecording(_ recording: Recording) {
+        if let index = recordings.firstIndex(where: { $0.id == recording.id }) {
+            recordings.remove(at: index)
+        }
+        analyses[recording.id] = nil
+        RecordingFileStore.deleteTitle(for: recording.fileURL)
+        try? FileManager.default.removeItem(at: recording.fileURL)
     }
 
     func analyzeRecording(_ recording: Recording) {
@@ -66,6 +93,8 @@ final class RecordingManager: ObservableObject {
 }
 
 enum RecordingFileStore {
+    private static let titlesKey = "recordingTitles"
+
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd_HH-mm-ss"
@@ -81,13 +110,21 @@ enum RecordingFileStore {
         return documentsDirectory().appendingPathComponent("pothole_\(timestamp).csv")
     }
 
+    static func defaultTitle(index: Int) -> String {
+        "Road Recording \(index)"
+    }
+
+    static func nextIndex(from recordings: [Recording]) -> Int {
+        recordings.count + 1
+    }
+
     static func loadRecordings() -> [Recording] {
         let folder = documentsDirectory()
         guard let files = try? FileManager.default.contentsOfDirectory(at: folder, includingPropertiesForKeys: [.creationDateKey]) else {
             return []
         }
 
-        return files
+        let data = files
             .filter { $0.pathExtension == "csv" }
             .compactMap { fileURL -> Recording? in
                 let values = try? fileURL.resourceValues(forKeys: [.creationDateKey])
@@ -95,13 +132,62 @@ enum RecordingFileStore {
                 let duration = DurationEstimator.estimateDuration(for: fileURL)
                 return Recording(
                     id: UUID(),
-                    title: "Pothole Recording",
+                    title: "",
                     date: date,
                     duration: duration,
                     fileURL: fileURL
                 )
             }
             .sorted(by: { $0.date > $1.date })
+
+        var titles = loadTitles()
+        var didUpdateTitles = false
+
+        let recordings = data.enumerated().map { index, recording in
+            let fileKey = recording.fileURL.lastPathComponent
+            let title = titles[fileKey] ?? defaultTitle(index: index + 1)
+            if titles[fileKey] == nil {
+                titles[fileKey] = title
+                didUpdateTitles = true
+            }
+            return Recording(
+                id: recording.id,
+                title: title,
+                date: recording.date,
+                duration: recording.duration,
+                fileURL: recording.fileURL
+            )
+        }
+
+        if didUpdateTitles {
+            saveTitles(titles)
+        }
+
+        return recordings
+    }
+
+    static func title(for fileURL: URL) -> String? {
+        loadTitles()[fileURL.lastPathComponent]
+    }
+
+    static func saveTitle(_ title: String, for fileURL: URL) {
+        var titles = loadTitles()
+        titles[fileURL.lastPathComponent] = title
+        saveTitles(titles)
+    }
+
+    static func deleteTitle(for fileURL: URL) {
+        var titles = loadTitles()
+        titles.removeValue(forKey: fileURL.lastPathComponent)
+        saveTitles(titles)
+    }
+
+    private static func loadTitles() -> [String: String] {
+        UserDefaults.standard.dictionary(forKey: titlesKey) as? [String: String] ?? [:]
+    }
+
+    private static func saveTitles(_ titles: [String: String]) {
+        UserDefaults.standard.set(titles, forKey: titlesKey)
     }
 }
 
