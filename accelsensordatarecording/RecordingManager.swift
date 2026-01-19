@@ -94,6 +94,7 @@ final class RecordingManager: ObservableObject {
 
 enum RecordingFileStore {
     private static let titlesKey = "recordingTitles"
+    private static let defaultTitlePrefix = "Road Recording "
 
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -115,7 +116,14 @@ enum RecordingFileStore {
     }
 
     static func nextIndex(from recordings: [Recording]) -> Int {
-        recordings.count + 1
+        let maxIndex = recordings.compactMap { defaultTitleIndex(from: $0.title) }.max() ?? 0
+        return maxIndex + 1
+    }
+
+    private static func defaultTitleIndex(from title: String) -> Int? {
+        guard title.hasPrefix(defaultTitlePrefix) else { return nil }
+        let suffix = title.dropFirst(defaultTitlePrefix.count)
+        return Int(suffix)
     }
 
     static func loadRecordings() -> [Recording] {
