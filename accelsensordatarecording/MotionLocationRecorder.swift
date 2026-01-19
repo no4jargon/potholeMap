@@ -12,7 +12,7 @@ final class MotionLocationRecorder: NSObject, CLLocationManagerDelegate {
     private var fileHandle: FileHandle?
     private var recordingURL: URL?
 
-    private(set) var title = "Pothole Recording"
+    private(set) var title = "Road Recording"
 
     override init() {
         super.init()
@@ -24,7 +24,7 @@ final class MotionLocationRecorder: NSObject, CLLocationManagerDelegate {
     }
 
     func start() {
-        title = "Pothole Recording"
+        title = "Road Recording"
         setupFile()
         requestPermissions()
         startLocationUpdates()

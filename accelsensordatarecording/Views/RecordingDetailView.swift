@@ -180,7 +180,7 @@ private enum DataTab: CaseIterable {
     NavigationStack {
         RecordingDetailView(recording: Recording(
             id: UUID(),
-            title: "Pothole Recording",
+            title: "Road Recording 1",
             date: Date(),
             duration: 42,
             fileURL: URL(fileURLWithPath: "/tmp/sample.csv")

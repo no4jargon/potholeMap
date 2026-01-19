@@ -2,6 +2,8 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject private var manager: RecordingManager
+    @State private var recordingToRename: Recording?
+    @State private var renameText = ""
 
     var body: some View {
         NavigationStack {
@@ -22,6 +24,27 @@ struct ContentView: View {
         }
         .onAppear {
             manager.loadRecordings()
+        }
+        .alert("Rename Recording", isPresented: Binding(
+            get: { recordingToRename != nil },
+            set: { isPresented in
+                if !isPresented {
+                    recordingToRename = nil
+                }
+            }
+        )) {
+            TextField("Title", text: $renameText)
+            Button("Save") {
+                if let recording = recordingToRename {
+                    manager.renameRecording(recording, to: renameText)
+                }
+                recordingToRename = nil
+            }
+            Button("Cancel", role: .cancel) {
+                recordingToRename = nil
+            }
+        } message: {
+            Text("Update the name for this road recording.")
         }
     }
 
@@ -51,6 +74,22 @@ struct ContentView: View {
                         analyzeButton(for: recording)
                     }
                     .padding(.horizontal, 20)
+                    .swipeActions(edge: .leading, allowsFullSwipe: false) {
+                        Button {
+                            recordingToRename = recording
+                            renameText = recording.title
+                        } label: {
+                            Label("Rename", systemImage: "pencil")
+                        }
+                        .tint(.blue)
+                    }
+                    .swipeActions(edge: .trailing) {
+                        Button(role: .destructive) {
+                            manager.deleteRecording(recording)
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
 
                     Divider()
                         .background(Color.white.opacity(0.08))
